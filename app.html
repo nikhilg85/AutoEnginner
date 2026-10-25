@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTO ENGINEERS – Premium Car Garage | Noida Sector 16 Block -B, B-225</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none }
+        * { scrollbar-width: none; font-family: 'Inter', sans-serif; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes blurIn {
+            0% { opacity: 0; filter: blur(15px); transform: scale(0.95); }
+            100% { opacity: 1; filter: blur(0); transform: scale(1); }
+        }
+        @keyframes scan-line {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+            50% { box-shadow: 0 0 40px rgba(59,130,246,0.6); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes countUp {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+        .animate-blurIn { animation: blurIn 1s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60A5FA, #818CF8, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-gradient {
+            background: linear-gradient(to bottom, #111111, #0A0A0A);
+        }
+
+        .glass {
+            background: rgba(10,10,10,0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .noise-overlay {
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03;
+            mix-blend-mode: soft-light;
+        }
+
+        .scan-effect::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3B82F6, transparent);
+            animation: scan-line 3s linear infinite;
+        }
+
+        .subscription-card {
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .subscription-card:hover {
+            transform: translateY(-8px);
+        }
+        .subscription-card.popular {
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 30px -10px rgba(59,130,246,0.5);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: rgba(255,255,255,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .toast {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(168,85,247,0.06) 0%, transparent 60%);
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .step-connector {
+            background: linear-gradient(to bottom, #3B82F6, transparent);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <!-- Noise Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50 noise-overlay"></div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="fixed top-24 right-6 z-[100] flex flex-col gap-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-[60] w-[95%] max-w-6xl glass rounded-full px-6 py-3 border border-white/10 transition-all duration-300">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/30 transition-all">
+                    <i data-lucide="wrench" class="w-5 h-5 text-blue-400"></i>
+                </div>
+                <span class="font-oswald font-600 text-xl tracking-tight">AUTO ENGINEERS<span class="text-blue-400"></span></span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">SERVICES</a>
+                <a href="#pickup" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">PICKUP & DROP</a>
+                <a href="#subscription" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">SUBSCRIPTIONS</a>
+                <a href="#about" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">ABOUT</a>
+                <a href="#gallery" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">GALLERY</a>
+                <a href="#contact" class="nav-link text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors">CONTACT</a>
+            </div>
+
+            <!-- CTA + Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold tracking-tight px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    BOOK NOW
+                </a>
+                <button id="mobileToggle" class="md:hidden w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors">
+                    <i data-lucide="menu" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-white/10">
+            <div class="flex flex-col gap-3 pb-2">
+                <a href="#services" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">Services</a>
+                <a href="#pickup" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">Pickup & Drop</a>
+                <a href="#subscription" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">Subscriptions</a>
+                <a href="#about" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">About</a>
+                <a href="#gallery" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">Gallery</a>
+                <a href="#contact" class="mobile-link text-sm text-gray-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5 transition-all">Contact</a>
+                <a href="tel:+919876543210" class="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full mt-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    CALL NOW
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center hero-bg bg-grid overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-blue-500/5 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px]"></div>
+
+        <div class="relative z-10 max-w-7xl mx-AUTO ENGINEERS px-6 pt-32 pb-20 w-full">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <!-- Left Content -->
+                <div class="flex-1 text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="animate-fadeInUp inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-[10px] font-semibold tracking-widest uppercase text-gray-400">Noida Sector 16 • Open Now</span>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="animate-fadeInUp delay-100 font-oswald font-300 text-5xl sm:text-6xl lg:text-[76px] leading-[1.05] tracking-tight mb-6">
+                        YOUR CAR<br>
+                        DESERVES<br>
+                        <span class="gradient-text font-500">THE BEST CARE</span>
+                    </h1>
+
+                    <!-- Subtext -->
+                    <p class="animate-fadeInUp delay-200 text-gray-400 text-sm sm:text-base leading-relaxed max-w-lg mx-AUTO ENGINEERS lg:mx-0 mb-8">
+                        Premium multi-brand car servicing in Noida Sector 16. 
+                        <span class="text-white font-medium">Free pickup & drop</span> across Noida, Greater Noida & Delhi NCR. 
+                        Subscribe & save up to 40% on your car maintenance.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="animate-fadeInUp delay-300 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#subscription" class="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold tracking-tight px-8 py-3.5 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                            VIEW SUBSCRIPTION PLANS
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#pickup" class="group flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white text-sm font-semibold tracking-tight px-8 py-3.5 rounded-full transition-all hover:scale-105">
+                            <i data-lucide="truck" class="w-4 h-4 text-green-400"></i>
+                            SCHEDULE FREE PICKUP
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="animate-fadeInUp delay-400 flex items-center gap-6 mt-10 justify-center lg:justify-start">
+                        <div class="flex items-center gap-2">
+                            <div class="flex -space-x-2">
+                                <img src="https://picsum.photos/seed/user1/32/32" class="w-7 h-7 rounded-full border-2 border-black" alt="">
+                                <img src="https://picsum.photos/seed/user2/32/32" class="w-7 h-7 rounded-full border-2 border-black" alt="">
+                                <img src="https://picsum.photos/seed/user3/32/32" class="w-7 h-7 rounded-full border-2 border-black" alt="">
+                                <img src="https://picsum.photos/seed/user4/32/32" class="w-7 h-7 rounded-full border-2 border-black" alt="">
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-0.5">
+                                    <i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>
+                                </div>
+                                <span class="text-[10px] text-gray-500">2500+ Happy Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="flex-1 relative animate-blurIn delay-300">
+                    <div class="relative">
+                        <!-- Main Image -->
+                        <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+                            <img src="https://picsum.photos/seed/cargarge1/600/500" class="w-full h-[400px] lg:h-[480px] object-cover" alt="AUTO ENGINEERS Garage">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <!-- Overlay Info -->
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="glass rounded-2xl p-4 border border-white/10">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-[10px] font-semibold tracking-widest uppercase text-blue-400 mb-1">CURRENTLY SERVICING</p>
+                                            <p class="text-sm font-semibold">Hyundai Creta • Full Service</p>
+                                        </div>
+                                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                                            <span class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 1 -->
+                        <div class="absolute -top-4 -right-4 animate-float glass rounded-2xl p-3 border border-white/10 shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                                    <i data-lucide="truck" class="w-5 h-5 text-green-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold">FREE PICKUP</p>
+                                    <p class="text-[10px] text-gray-500">Across NCR</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute -bottom-4 -left-4 animate-float delay-500 glass rounded-2xl p-3 border border-white/10 shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-5 h-5 text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold">WARRANTY ON</p>
+                                    <p class="text-[10px] text-gray-500">All Repairs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fadeInUp delay-700">
+            <span class="text-[10px] tracking-widest uppercase text-gray-600">Scroll</span>
+            <div class="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center p-1">
+                <div class="w-1 h-2 rounded-full bg-white/40 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="relative border-y border-white/5 bg-[#0A0A0A]">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="font-oswald text-3xl lg:text-4xl font-300 gradient-text" id="stat1">8+</p>
+                    <p class="text-[10px] tracking-widest uppercase text-gray-500 mt-1">Years Experience</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-oswald text-3xl lg:text-4xl font-300 gradient-text" id="stat2">2500+</p>
+                    <p class="text-[10px] tracking-widest uppercase text-gray-500 mt-1">Cars Serviced</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-oswald text-3xl lg:text-4xl font-300 gradient-text" id="stat3">15+</p>
+                    <p class="text-[10px] tracking-widest uppercase text-gray-500 mt-1">Expert Mechanics</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-oswald text-3xl lg:text-4xl font-300 gradient-text" id="stat4">4.9</p>
+                    <p class="text-[10px] tracking-widest uppercase text-gray-500 mt-1">Google Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="relative py-24 bg-black bg-grid">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="settings" class="w-3.5 h-3.5 text-blue-400"></i>
+                    <span class="text-[10px] font-semibold tracking-widest uppercase text-blue-400">OUR SERVICES</span>
+                </div>
+                <h2 class="font-oswald font-300 text-4xl lg:text-5xl tracking-tight mb-4">
+                    COMPLETE CAR CARE <span class="gradient-text">SOLUTIONS</span>
+                </h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">From routine oil changes to complex engine overhauls — we handle everything under one roof with certified mechanics.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <
