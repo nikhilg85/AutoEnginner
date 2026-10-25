@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Auto Engineers — Car Service, Denting-Painting &amp; Pickup Drop | Sector 16, Noida</title>
+<meta name="theme-color" content="#1B1E21">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --asphalt:#17191C;
+  --asphalt-2:#212528;
+  --asphalt-3:#2B3034;
+  --offwhite:#EBE9E4;
+  --paper:#F5F4F1;
+  --orange:#FF5A1F;
+  --orange-dim:#C94317;
+  --steel:#4A6B85;
+  --chrome:#9BA6AE;
+  --green:#25D366;
+  --amber:#E8A83D;
+  --line:rgba(155,166,174,0.22);
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--asphalt);
+  font-family:'Work Sans',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  letter-spacing:.01em;
+  margin:0;
+  text-transform:uppercase;
+}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange);
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:10px;
+}
+.eyebrow::before{content:"";width:20px;height:2px;background:var(--orange);display:inline-block;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 24px;border-radius:8px;border:none;cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:16px;letter-spacing:.03em;
+  text-transform:uppercase;transition:transform .15s ease, background .2s ease;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--orange);color:#fff;}
+.btn-primary:hover{background:var(--orange-dim);}
+.btn-ghost{background:transparent;color:var(--offwhite);border:1.5px solid var(--chrome);}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
+.btn-dark{background:var(--asphalt);color:var(--offwhite);}
+.btn-whatsapp{background:var(--green);color:#08350f;}
+.btn-block{width:100%;}
+
+/* ---------- NAV ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(23,25,28,0.96);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;max-width:1120px;margin:0 auto;
+}
+.logo{display:flex;align-items:center;gap:10px;color:var(--offwhite);}
+.logo-mark{
+  width:34px;height:34px;border-radius:6px;background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Rajdhani';font-weight:700;color:#fff;font-size:16px;flex-shrink:0;
+}
+.logo-text{font-family:'Rajdhani';font-weight:700;font-size:18px;letter-spacing:.02em;color:var(--offwhite);text-transform:uppercase;}
+.logo-text span{color:var(--orange);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{color:var(--offwhite);font-size:14px;font-weight:500;opacity:.85;}
+.nav-links a:hover{opacity:1;color:var(--orange);}
+.nav-cta{display:flex;gap:10px;align-items:center;}
+.nav-call{
+  display:flex;align-items:center;gap:6px;color:var(--offwhite);font-family:'JetBrains Mono';font-size:13px;
+  border:1px solid var(--line);padding:8px 12px;border-radius:8px;
+}
+.nav-call:hover{border-color:var(--orange);color:var(--orange);}
+.menu-btn{display:none;background:none;border:none;color:var(--offwhite);font-size:24px;cursor:pointer;}
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .nav-call span{display:none;}
+  .menu-btn{display:block;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;background:var(--asphalt);color:var(--offwhite);
+  padding:64px 0 90px;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(115deg, rgba(255,90,31,0.05) 0 2px, transparent 2px 46px),
+    linear-gradient(180deg, var(--asphalt) 0%, var(--asphalt-2) 100%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+.hero h1{font-size:clamp(34px,5.6vw,58px);line-height:1.02;}
+.hero h1 .hl{color:var(--orange);}
+.hero p{
+  font-size:16.5px;color:var(--chrome);max-width:480px;margin:20px 0 30px;line-height:1.6;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-badges{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap;}
+.hero-badge{font-family:'JetBrains Mono';font-size:12px;color:var(--chrome);display:flex;gap:8px;align-items:center;}
+.hero-badge b{color:var(--offwhite);font-family:'Rajdhani';font-size:20px;font-weight:700;}
+
+/* gauge signature element */
+.gauge-card{
+  background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;position:relative;
+}
+.gauge-card .label{font-family:'JetBrains Mono';font-size:11px;color:var(--chrome);letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;}
+.gauge-wrap{display:flex;justify-content:center;padding:14px 0 4px;}
+.gauge-status{
+  text-align:center;font-family:'Rajdhani';font-weight:700;font-size:22px;color:var(--orange);
+  letter-spacing:.02em;text-transform:uppercase;
+}
+.gauge-sub{text-align:center;color:var(--chrome);font-size:12.5px;margin-top:2px;}
+
+/* ---------- SECTIONS GENERIC ---------- */
+section{padding:78px 0;}
+.section-head{max-width:640px;margin-bottom:42px;}
+.section-head h2{font-size:clamp(26px,3.6vw,38px);}
+.section-head p{color:#565b5f;font-size:15.5px;margin-top:12px;line-height:1.6;}
+.dark-section{background:var(--asphalt);color:var(--offwhite);}
+.dark-section .section-head p{color:var(--chrome);}
+
+/* ---------- SERVICES ---------- */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr;}}
+.svc-card{
+  background:#fff;border:1px solid #DEDAD1;border-radius:var(--radius);
+  padding:30px;position:relative;overflow:hidden;
+}
+.svc-card .num{position:absolute;top:18px;right:22px;font-family:'JetBrains Mono';font-size:12px;color:#B7B1A4;}
+.svc-icon{width:52px;height:52px;border-radius:10px;background:var(--asphalt);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.svc-card h3{font-size:22px;margin-bottom:10px;}
+.svc-card ul{margin:16px 0 20px;padding:0;list-style:none;}
+.svc-card li{
+  font-size:14.5px;color:#4B4640;padding:8px 0;border-top:1px solid #ECE8DF;display:flex;gap:10px;
+}
+.svc-card li::before{content:"—";color:var(--orange);flex-shrink:0;}
+
+/* ---------- PICKUP/DROP TIMELINE ---------- */
+.timeline{display:flex;gap:0;margin-top:10px;flex-wrap:wrap;}
+.tl-step{flex:1;min-width:140px;padding:20px 18px;border-left:2px solid var(--line);position:relative;}
+.tl-step::before{
+  content:attr(data-n);position:absolute;left:-11px;top:20px;width:20px;height:20px;border-radius:50%;
+  background:var(--orange);color:#fff;font-family:'JetBrains Mono';font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.tl-step h4{font-family:'Rajdhani';font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--offwhite);margin-bottom:6px;}
+.tl-step p{font-size:13px;color:var(--chrome);line-height:1.5;margin:0;}
+@media(max-width:760px){.timeline{flex-direction:column;} .tl-step{border-left:2px solid var(--line);}}
+
+/* ---------- TRACKER ---------- */
+.tracker-panel{
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;background:var(--asphalt-2);
+  border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+}
+@media(max-width:820px){.tracker-panel{grid-template-columns:1fr;}}
+.stage-list{display:flex;flex-direction:column;gap:0;}
+.stage{
+  display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);
+  opacity:.45;transition:opacity .3s ease;
+}
+.stage.active{opacity:1;}
+.stage .dot{width:11px;height:11px;border-radius:50%;background:var(--chrome);flex-shrink:0;transition:background .3s ease;}
+.stage.active .dot{background:var(--orange);box-shadow:0 0 0 4px rgba(255,90,31,0.18);}
+.stage.done .dot{background:var(--green);}
+.stage span{font-size:14px;color:var(--offwhite);font-weight:500;}
+.stage small{display:block;color:var(--chrome);font-size:11.5px;font-family:'JetBrains Mono';}
+
+.wa-log{
+  background:#0B141A;border-radius:10px;padding:14px;height:230px;overflow-y:auto;
+  display:flex;flex-direction:column;gap:8px;
+}
+.wa-msg{
+  background:#005C4B;color:#E9EDEF;font-size:13px;padding:9px 12px;border-radius:8px 8px 8px 2px;
+  max-width:88%;align-self:flex-start;line-height:1.45;
+}
+.wa-msg time{display:block;font-size:10px;color:#8FA6A0;margin-top:4px;font-family:'JetBrains Mono';}
+.wa-log::-webkit-scrollbar{width:6px;}
+.wa-log::-webkit-scrollbar-thumb{background:#2b3a37;border-radius:4px;}
+
+/* ---------- SUBSCRIPTIONS ---------- */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.plan-grid{grid-template-columns:1fr;}}
+.plan-card{
+  border:1px solid #DEDAD1;border-radius:var(--radius);padding:28px;background:#fff;display:flex;flex-direction:column;
+}
+.plan-card.featured{border:2px solid var(--orange);position:relative;}
+.plan-tag{
+  position:absolute;top:-13px;left:24px;background:var(--orange);color:#fff;font-size:11px;
+  font-family:'JetBrains Mono';padding:4px 10px;border-radius:20px;letter-spacing:.05em;
+}
+.plan-card h3{font-size:20px;}
+.plan-price{font-family:'Rajdhani';font-weight:700;font-size:38px;margin:14px 0 2px;}
+.plan-price sub{font-family:'Work Sans';font-size:13px;color:#8A8578;font-weight:400;}
+.plan-note{font-size:12px;color:#8A8578;margin-bottom:18px;}
+.plan-card ul{list-style:none;padding:0;margin:0 0 24px;flex:1;}
+.plan-card li{font-size:14px;padding:8px 0;border-top:1px solid #ECE8DF;color:#4B4640;display:flex;gap:8px;}
+.plan-card li::before{content:"✓";color:var(--orange);font-weight:700;}
+
+/* ---------- BOOKING FORM ---------- */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+@media(max-width:900px){.book-grid{grid-template-columns:1fr;}}
+.form-card{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-family:'JetBrains Mono';font-size:11px;color:var(--chrome);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.field input,.field select{
+  width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--line);
+  background:var(--asphalt);color:var(--offwhite);font-family:'Work Sans';font-size:14.5px;
+}
+.field input:focus,.field select:focus{outline:2px solid var(--orange);outline-offset:1px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:520px){.field-row{grid-template-columns:1fr;}}
+.checkline{display:flex;align-items:center;gap:10px;margin:6px 0 20px;}
+.checkline input{width:18px;height:18px;accent-color:var(--orange);}
+.checkline label{color:var(--offwhite);font-size:14px;font-family:'Work Sans';}
+.confirm-box{
+  display:none;margin-top:18px;background:rgba(37,211,102,0.09);border:1px solid rgba(37,211,102,0.35);
+  border-radius:10px;padding:18px;
+}
+.confirm-box.show{display:block;}
+.confirm-box h4{font-family:'Rajdhani';color:var(--green);text-transform:uppercase;font-size:16px;}
+.confirm-box p{color:var(--offwhite);font-size:13.5px;margin:8px 0 14px;line-height:1.6;}
+.book-id{font-family:'JetBrains Mono';color:var(--amber);font-size:14px;}
+
+.contact-info{color:var(--offwhite);}
+.contact-info h3{font-size:22px;margin-bottom:16px;}
+.contact-line{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--line);}
+.contact-line .k{font-family:'JetBrains Mono';font-size:11px;color:var(--chrome);text-transform:uppercase;width:80px;flex-shrink:0;padding-top:2px;}
+.contact-line .v{font-size:15px;line-height:1.5;}
+.map-embed{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);margin-top:20px;}
+.map-embed iframe{width:100%;height:220px;border:0;display:block;}
+
+/* ---------- GALLERY ---------- */
+.gal-subhead{
+  font-family:'Rajdhani';font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  font-size:15px;color:var(--offwhite);margin:26px 0 14px;padding-top:14px;border-top:1px solid var(--line);
+}
+.gal-subhead:first-of-type{border-top:none;padding-top:0;margin-top:6px;}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:820px){.gal-grid{grid-template-columns:repeat(2,1fr);}}
+.gal-tile{
+  aspect-ratio:1/1;border-radius:10px;overflow:hidden;position:relative;
+  background:linear-gradient(145deg,var(--asphalt-2),var(--asphalt-3));
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line);
+}
+.gal-chip{
+  position:absolute;top:8px;left:8px;z-index:2;background:var(--orange);color:#fff;
+  font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:20px;
+}
+.gal-chip.before{background:#8A3B2A;}
+.gal-chip.after{background:#2C7A4B;}
+.gal-tile img{width:100%;height:100%;object-fit:cover;}
+.gal-tile .ph-icon{opacity:.5;}
+.gal-tile .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:8px 10px;
+  background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);
+  font-size:11px;color:var(--offwhite);font-family:'JetBrains Mono';
+}
+.gal-upload{
+  border:1.5px dashed var(--chrome);border-radius:10px;aspect-ratio:1/1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  color:var(--chrome);font-size:12px;cursor:pointer;text-align:center;padding:10px;
+}
+.gal-upload:hover{border-color:var(--orange);color:var(--orange);}
+.gal-upload input{display:none;}
+.gal-note{font-size:12px;color:var(--chrome);margin-top:14px;}
+
+/* ---------- REVIEWS ---------- */
+.rev-summary{display:flex;align-items:center;gap:20px;margin-bottom:30px;flex-wrap:wrap;}
+.rev-score{font-family:'Rajdhani';font-weight:700;font-size:46px;color:var(--asphalt);}
+.rev-stars{color:var(--orange);font-size:20px;letter-spacing:2px;}
+.rev-count{font-size:13px;color:#8A8578;}
+
+.rev-marquee{
+  overflow:hidden;position:relative;margin:0 -20px 16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.rev-track{display:flex;gap:16px;width:max-content;padding:4px 20px;animation:marqueeL 70s linear infinite;}
+.rev-track.reverse{animation:marqueeR 80s linear infinite;}
+.rev-marquee:hover .rev-track{animation-play-state:paused;}
+@keyframes marqueeL{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes marqueeR{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+
+.rev-card{
+  background:#fff;border:1px solid #DEDAD1;border-radius:var(--radius);padding:20px;
+  flex:0 0 auto;width:290px;
+}
+.rev-card .top-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.rev-card .stars{color:var(--orange);font-size:15px;letter-spacing:2px;}
+.rev-card .role-tag{
+  font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:.05em;
+  background:#F1EEE6;color:#8A8578;padding:3px 8px;border-radius:20px;white-space:nowrap;
+}
+.rev-card p{font-size:13.5px;color:#4B4640;line-height:1.6;margin:0 0 14px;}
+.rev-card .who{font-family:'Rajdhani';font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.02em;}
+.rev-card .car{font-size:12px;color:#8A8578;}
+.rev-form{background:#fff;border:1px solid #DEDAD1;border-radius:var(--radius);padding:26px;margin-top:10px;}
+.rev-form .field-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:760px){.rev-form .field-row{grid-template-columns:1fr;}}
+.rev-form label{display:block;font-family:'JetBrains Mono';font-size:11px;color:#8A8578;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.rev-form input,.rev-form select,.rev-form textarea{
+  width:100%;padding:11px 13px;border-radius:8px;border:1px solid #DEDAD1;font-family:'Work Sans';font-size:14px;background:#FBFAF8;
+}
+.rev-form textarea{resize:vertical;min-height:70px;}
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.fab{
+  position:fixed;bottom:22px;right:22px;z-index:60;width:56px;height:56px;border-radius:50%;
+  background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--asphalt);color:var(--chrome);padding:36px 0;border-top:1px solid var(--line);}
+.foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;}
+.foot-inner b{color:var(--offwhite);}
+.disclaimer{max-width:1120px;margin:14px auto 0;padding:0 20px;font-size:11.5px;color:#5a5f63;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">AE</div>
+      <div class="logo-text">Auto <span>Engineers</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pickup">Pickup &amp; Drop</a>
+      <a href="#track">Track</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#plans">Subscriptions</a>
+      <a href="#book">Book</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:+919958958002">📞 <span>9958958002</span></a>
+      <a class="btn btn-primary" href="#book" style="padding:10px 16px;font-size:13px;">Book Now</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Sector 16 · Auto Market · Noida</div>
+      <h1>Your car's full pit stop, <span class="hl">handled at your door.</span></h1>
+      <p>Genuine service, denting &amp; painting, doorstep pickup-drop and yearly care plans — from the workshop your neighbourhood already trusts. Track your car live, get every update on WhatsApp.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Book an Appointment</a>
+        <a href="#track" class="btn btn-ghost">Track My Car</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><b>Sr. No 09</b>GST&nbsp;registered workshop</div>
+        <div class="hero-badge"><b>Free</b>Pickup &amp; drop in Noida</div>
+        <div class="hero-badge"><b>Live</b>WhatsApp status updates</div>
+      </div>
+    </div>
+
+    <div class="gauge-card">
+      <div class="label"><span>Live Service Status</span><span class="mono">DEMO</span></div>
+      <div class="gauge-wrap">
+        <svg id="gaugeSvg" width="240" height="150" viewBox="0 0 240 150">
+          <path d="M20,140 A100,100 0 0,1 220,140" fill="none" stroke="#3a4045" stroke-width="14" stroke-linecap="round"/>
+          <path id="gaugeArc" d="M20,140 A100,100 0 0,1 220,140" fill="none" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"
+                stroke-dasharray="314" stroke-dashoffset="314"/>
+          <g id="needle" style="transform-origin:120px 140px; transform:rotate(-90deg); transition:transform .6s cubic-bezier(.4,0,.2,1);">
+            <line x1="120" y1="140" x2="120" y2="55" stroke="#EBE9E4" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="120" cy="140" r="8" fill="#EBE9E4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="gauge-status" id="gaugeStatus">Booked</div>
+      <div class="gauge-sub" id="gaugeSub">Waiting for pickup crew assignment</div>
+      <div style="text-align:center;margin-top:16px;">
+        <button class="btn btn-ghost" style="font-size:12px;padding:9px 16px;" onclick="advanceStage()">Simulate Next Update →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Two workshops. One roof.</h2>
+      <p>Mechanical service and cosmetic repair, run out of the same bay in Sector 16 — so your car doesn't need to travel twice.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="num">SAC 9987</div>
+        <div class="svc-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 15l1.5-5A2 2 0 0 1 7.4 8.5h9.2a2 2 0 0 1 1.9 1.5L20 15" stroke="#FF5A1F" stroke-width="1.8"/><rect x="3" y="15" width="18" height="4" rx="1.5" stroke="#EBE9E4" stroke-width="1.8"/><circle cx="7" cy="19" r="1.4" fill="#EBE9E4"/><circle cx="17" cy="19" r="1.4" fill="#EBE9E4"/></svg>
+        </div>
+        <h3>General Car Service</h3>
+        <p style="color:#6b665c;font-size:14.5px;">Periodic maintenance, oil &amp; filter change, brake and suspension check, AC service and full diagnostics.</p>
+        <ul>
+          <li>Engine oil, oil &amp; air filter replacement</li>
+          <li>Brake pads, clutch &amp; suspension check</li>
+          <li>AC gas top-up &amp; cooling system check</li>
+          <li>Computerised diagnostics report</li>
+          <li>Battery &amp; electrical health check</li>
+        </ul>
+        <a href="#book" class="btn btn-dark">Book Car Service</a>
+      </div>
+      <div class="svc-card">
+        <div class="num">DENT · PAINT</div>
+        <div class="svc-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 17l4-9 4 5 3-6 7 10" stroke="#FF5A1F" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 20h18" stroke="#EBE9E4" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Denting &amp; Painting</h3>
+        <p style="color:#6b665c;font-size:14.5px;">Insurance and cash denting-painting with computerised colour matching and bake-finish spray booth.</p>
+        <ul>
+          <li>Dent removal &amp; panel beating</li>
+          <li>Computerised colour matching</li>
+          <li>Bumper, fender &amp; full body repaint</li>
+          <li>Insurance claim assistance</li>
+          <li>Ceramic &amp; ppf coating on request</li>
+        </ul>
+        <a href="#book" class="btn btn-dark">Book Dent &amp; Paint</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pickup" class="dark-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Doorstep service</div>
+      <h2>Pickup &amp; drop, tracked end to end</h2>
+      <p>Tell us when it suits you — our driver picks the car up from your address, and drops it back once it's ready. Every step is visible in this app and sent to your WhatsApp.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step" data-n="1"><h4>You Book</h4><p>Pick a slot &amp; share your address online or on call.</p></div>
+      <div class="tl-step" data-n="2"><h4>We Pick Up</h4><p>Driver arrives, does a joint inspection with you.</p></div>
+      <div class="tl-step" data-n="3"><h4>In Workshop</h4><p>Service or paint work begins — status updates live.</p></div>
+      <div class="tl-step" data-n="4"><h4>Quality Check</h4><p>Senior mechanic signs off before dispatch.</p></div>
+      <div class="tl-step" data-n="5"><h4>We Drop Back</h4><p>Car returned to your doorstep, invoice on WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="track">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Live status</div>
+      <h2>Track your car, right here</h2>
+      <p>This mirrors what you'll see in the Auto Engineers app once your car is picked up — with a matching message dropped into your WhatsApp.</p>
+    </div>
+    <div class="tracker-panel">
+      <div class="stage-list" id="stageList"></div>
+      <div>
+        <div class="label" style="font-family:'JetBrains Mono';font-size:11px;color:var(--chrome);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">WhatsApp updates ↗ +91 99589 58002</div>
+        <div class="wa-log" id="waLog"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="dark-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our work</div>
+      <h2>Car photos — before, during &amp; after</h2>
+      <p>Real photos from the workshop floor. These are illustrative examples of the stages of a job, not necessarily the same car start-to-finish — swap in matched before/after shots of the same vehicle as you collect them for a stronger gallery.</p>
+    </div>
+
+    <div class="gal-subhead">General Car Service</div>
+    <div class="gal-grid">
+      <div class="gal-tile"><span class="gal-chip">During</span><img src="photos/mechanic-during-service.jpg" alt="Mechanic servicing a car with the hood open"><div class="cap">Mechanic at work under the hood</div></div>
+      <div class="gal-tile"><span class="gal-chip after">After</span><img src="photos/swift-front-after.jpg" alt="Serviced Maruti Swift, front view"><div class="cap">Ready for delivery</div></div>
+      <div class="gal-tile"><span class="gal-chip after">After</span><img src="photos/swift-side-after.jpg" alt="Serviced Maruti Swift, side view"><div class="cap">Clean &amp; road-ready</div></div>
+      <div class="gal-tile"><span class="gal-chip after">After</span><img src="photos/swift-rear-after.jpg" alt="Serviced Maruti Swift, rear view"><div class="cap">Final check complete</div></div>
+    </div>
+
+    <div class="gal-subhead">Denting &amp; Painting</div>
+    <div class="gal-grid">
+      <div class="gal-tile"><span class="gal-chip before">Before</span><img src="photos/damaged-before-1.jpg" alt="Accident-damaged car before denting and painting work"><div class="cap">Accident damage intake</div></div>
+      <div class="gal-tile"><span class="gal-chip">During</span><img src="photos/primer-van-during-1.jpg" alt="Vehicle body with primer patches during denting-painting"><div class="cap">Body work &amp; primer stage</div></div>
+      <div class="gal-tile"><span class="gal-chip">During</span><img src="photos/primer-van-during-2.jpg" alt="Close-up of primer patches on vehicle body during repair"><div class="cap">Panel prep before paint</div></div>
+      <label class="gal-upload">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Add your after-paint photo
+        <input type="file" id="galInput" accept="image/*" multiple>
+      </label>
+    </div>
+    <p class="gal-note">Preview only — photos added through the uploader stay in this browser tab and disappear on refresh. For a live, always-on gallery visitors can all see, the photos need to sit on a server or storage bucket rather than just this page.</p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Customer feedback</div>
+      <h2>What customers say</h2>
+      <p>Office-goers, cab &amp; taxi drivers and personal car owners on the pickup-and-drop experience. Genuine mix — most love it, a few flag real misses, replace with your actual reviews as they come in.</p>
+    </div>
+    <div class="rev-summary">
+      <div class="rev-score" id="revScore">4.8</div>
+      <div>
+        <div class="rev-stars" id="revStars">★★★★★</div>
+        <div class="rev-count" id="revCount">Based on 4 reviews</div>
+      </div>
+    </div>
+
+    <div class="rev-marquee"><div class="rev-track" id="revTrackA"></div></div>
+    <div class="rev-marquee"><div class="rev-track reverse" id="revTrackB"></div></div>
+
+    <div class="rev-form">
+      <h3 style="font-size:18px;margin-bottom:16px;">Share your experience</h3>
+      <form id="reviewForm">
+        <div class="field-row">
+          <div><label>Your Name</label><input type="text" id="r_name" required placeholder="e.g. Rohit Sharma"></div>
+          <div><label>Car Model</label><input type="text" id="r_car" required placeholder="e.g. Hyundai i20"></div>
+          <div><label>You Are A</label>
+            <select id="r_role">
+              <option>Office Employee</option>
+              <option>Taxi Driver</option>
+              <option>Cab Driver</option>
+              <option>Personal Car Owner</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row" style="margin-top:14px;">
+          <div><label>Rating</label>
+            <select id="r_rating">
+              <option value="5">★★★★★ Excellent</option>
+              <option value="4">★★★★ Good</option>
+              <option value="3">★★★ Okay</option>
+              <option value="2">★★ Below average</option>
+              <option value="1">★ Poor</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:14px;">
+          <label>Your Feedback</label>
+          <textarea id="r_comment" required placeholder="Tell us about your service experience..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:16px;">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Care plans</div>
+      <h2>Yearly service subscriptions</h2>
+      <p>Pay once, stop worrying about your car all year. Includes scheduled services, priority pickup-drop slots and breakdown support. Final pricing depends on your car's make and model — confirm on call before payment.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>Essential</h3>
+        <div class="plan-price">₹4,999<sub>/year*</sub></div>
+        <div class="plan-note">1 sedan/hatchback · indicative price</div>
+        <ul>
+          <li>2 scheduled general services</li>
+          <li>Free pickup &amp; drop</li>
+          <li>WhatsApp service reminders</li>
+          <li>10% off denting &amp; painting</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost btn-block" style="color:var(--asphalt);border-color:#c9c3b6;">Choose Essential</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-tag">Most booked</div>
+        <h3>Complete Care</h3>
+        <div class="plan-price">₹8,999<sub>/year*</sub></div>
+        <div class="plan-note">1 car · indicative price</div>
+        <ul>
+          <li>3 scheduled general services</li>
+          <li>Priority pickup &amp; drop slots</li>
+          <li>1 free minor dent touch-up</li>
+          <li>20% off denting &amp; painting</li>
+          <li>24x7 breakdown helpline</li>
+        </ul>
+        <a href="#book" class="btn btn-primary btn-block">Choose Complete Care</a>
+      </div>
+      <div class="plan-card">
+        <h3>Fleet / Business</h3>
+        <div class="plan-price">Custom</div>
+        <div class="plan-note">3+ vehicles</div>
+        <ul>
+          <li>Bulk pickup-drop scheduling</li>
+          <li>Dedicated account &amp; GST billing</li>
+          <li>Monthly health reports</li>
+          <li>Negotiated denting-painting rates</li>
+        </ul>
+        <a href="tel:+919958958002" class="btn btn-dark btn-block">Call for a Quote</a>
+      </div>
+    </div>
+    <p style="font-size:12px;color:#8A8578;margin-top:14px;">*Sample pricing for illustration — replace with your actual rates before publishing.</p>
+  </div>
+</section>
+
+<section id="book" class="dark-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Book online</div>
+      <h2>Get an appointment</h2>
+      <p>Fill this in, or just call/WhatsApp us directly — either way we'll confirm your slot on WhatsApp.</p>
+    </div>
+    <div class="book-grid">
+      <div class="form-card">
+        <form id="bookingForm">
+          <div class="field-row">
+            <div class="field">
+              <label>Full Name</label>
+              <input type="text" id="f_name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label>Phone Number</label>
+              <input type="tel" id="f_phone" required placeholder="10-digit mobile">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Vehicle Number</label>
+              <input type="text" id="f_vehicle" required placeholder="UP16 XX 1234">
+            </div>
+            <div class="field">
+              <label>Service Needed</label>
+              <select id="f_service">
+                <option>General Car Service</option>
+                <option>Denting &amp; Painting</option>
+                <option>Both</option>
+                <option>Yearly Subscription Enquiry</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Preferred Date</label>
+              <input type="date" id="f_date" required>
+            </div>
+            <div class="field">
+              <label>Preferred Time</label>
+              <input type="time" id="f_time" required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Pickup Address (leave blank if you'll drive in)</label>
+            <input type="text" id="f_address" placeholder="House / Street / Sector, Noida">
+          </div>
+          <div class="checkline">
+            <input type="checkbox" id="f_pickup" checked>
+            <label for="f_pickup">I need free pickup &amp; drop</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirm Appointment</button>
+
+          <div class="confirm-box" id="confirmBox">
+            <h4>Appointment noted ✓</h4>
+            <p>Booking ID <span class="book-id" id="bookId"></span> — we'll call to confirm your slot. Tap below to also send it on WhatsApp so it's on record.</p>
+            <a id="waConfirmLink" class="btn btn-whatsapp btn-block" target="_blank">Send to WhatsApp</a>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <div class="contact-info">
+          <h3>Auto Engineers</h3>
+          <div class="contact-line"><div class="k">Address</div><div class="v">B-225, Basement, Block-B, Auto Market, Sector-16, Noida, G.B. Nagar, U.P. – 201301</div></div>
+          <div class="contact-line"><div class="k">Phone</div><div class="v"><a href="tel:+919958958002">99589 58002</a></div></div>
+          <div class="contact-line"><div class="k">Email</div><div class="v">sharmashambhu123458@gmail.com</div></div>
+          <div class="contact-line"><div class="k">GSTIN</div><div class="v mono" style="font-size:13px;">09DWDPS7002E1ZK</div></div>
+        </div>
+        <div class="map-embed">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=Auto+Market,+Sector+16,+Noida,+Uttar+Pradesh+201301&output=embed"></iframe>
+        </div>
+        <a class="btn btn-ghost btn-block" style="margin-top:14px;" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=Auto+Market,+Sector+16,+Noida,+Uttar+Pradesh+201301">Open Directions in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-head" style="margin:0 auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Talk to us directly</div>
+      <h2>Call, WhatsApp, or walk in</h2>
+      <p style="margin:16px auto 0;">B-225, Basement, Block-B, Auto Market, Sector-16, Noida, G.B. Nagar, U.P. – 201301</p>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px;">
+      <a class="btn btn-dark" href="tel:+919958958002">📞 Call 99589 58002</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/919958958002?text=Hi%20Auto%20Engineers%2C%20I%27d%20like%20to%20book%20a%20service." target="_blank">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div><b>Auto Engineers</b> · Sector 16, Noida</div>
+    <div>GSTIN 09DWDPS7002E1ZK</div>
+    <div>© <span id="year"></span> Auto Engineers</div>
+  </div>
+  <div class="disclaimer">This is a demo web app built from your invoice details. Replace sample subscription prices with your real rates, and connect the booking form / WhatsApp links / live tracker to your own backend before going live. It's fully mobile-responsive and can be saved to a phone's home screen like an app; a native iOS/Android app would be a separate build on top of this same design.</div>
+</footer>
+
+<a class="fab" href="https://wa.me/919958958002" target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#08350f"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.1.2-.3.2-.6.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------------- LIVE TRACKER ---------------- */
+const stages = [
+  {label:"Booked", sub:"Waiting for pickup crew assignment", msg:"Hi! Your appointment is booked. We'll assign a pickup slot shortly. – Auto Engineers"},
+  {label:"Pickup Scheduled", sub:"Driver assigned, on the way", msg:"Your car pickup is scheduled for today. Our driver is on the way to your address."},
+  {label:"Picked Up", sub:"Joint inspection completed", msg:"Car picked up ✅ Joint inspection done with you present. Heading to the workshop now."},
+  {label:"In Service", sub:"Work in progress at the bay", msg:"Your car is now in the service bay. Mechanic has started work — we'll update you at each stage."},
+  {label:"Quality Check", sub:"Senior mechanic sign-off", msg:"Service/paint work complete. Car is with our senior mechanic for final quality check."},
+  {label:"Out for Delivery", sub:"On the way back to you", msg:"All checks passed ✅ Your car is out for delivery and heading back to your address now."},
+  {label:"Delivered", sub:"Back at your doorstep", msg:"Delivered! Your car is back with you. Invoice has been shared on this WhatsApp number. Thank you for choosing Auto Engineers 🙏"}
+];
+let stageIndex = 0;
+
+const stageList = document.getElementById('stageList');
+stages.forEach((s,i)=>{
+  const div = document.createElement('div');
+  div.className = 'stage';
+  div.id = 'stage-'+i;
+  div.innerHTML = `<div class="dot"></div><div><span>${s.label}</span><small>${s.sub}</small></div>`;
+  stageList.appendChild(div);
+});
+
+const needle = document.getElementById('needle');
+const gaugeArc = document.getElementById('gaugeArc');
+const gaugeStatus = document.getElementById('gaugeStatus');
+const gaugeSub = document.getElementById('gaugeSub');
+const waLog = document.getElementById('waLog');
+
+function timeNow(){
+  const d = new Date();
+  return d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+}
+
+function renderStage(i){
+  stages.forEach((s,idx)=>{
+    const el = document.getElementById('stage-'+idx);
+    el.classList.remove('active','done');
+    if(idx < i) el.classList.add('done');
+    if(idx === i) el.classList.add('active');
+  });
+  const angle = -90 + (180 * (i/(stages.length-1)));
+  needle.style.transform = `rotate(${angle}deg)`;
+  const dash = 314 * ((i)/(stages.length-1));
+  gaugeArc.style.strokeDashoffset = 314 - dash;
+  gaugeStatus.textContent = stages[i].label;
+  gaugeSub.textContent = stages[i].sub;
+
+  const bubble = document.createElement('div');
+  bubble.className = 'wa-msg';
+  bubble.innerHTML = stages[i].msg + `<time>${timeNow()} ✓✓</time>`;
+  waLog.appendChild(bubble);
+  waLog.scrollTop = waLog.scrollHeight;
+}
+
+function advanceStage(){
+  renderStage(stageIndex);
+  stageIndex = (stageIndex + 1) % stages.length;
+}
+// initialize
+advanceStage();
+
+/* ---------------- BOOKING FORM ---------------- */
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('f_name').value.trim();
+  const phone = document.getElementById('f_phone').value.trim();
+  const vehicle = document.getElementById('f_vehicle').value.trim();
+  const service = document.getElementById('f_service').value;
+  const date = document.getElementById('f_date').value;
+  const time = document.getElementById('f_time').value;
+  const address = document.getElementById('f_address').value.trim();
+  const pickup = document.getElementById('f_pickup').checked;
+
+  const bookId = 'AE-' + date.replace(/-/g,'').slice(2) + '-' + Math.floor(1000+Math.random()*9000);
+  document.getElementById('bookId').textContent = bookId;
+
+  const text = `Hi Auto Engineers, I'd like to confirm my appointment.%0A`+
+    `Booking ID: ${bookId}%0AName: ${name}%0APhone: ${phone}%0AVehicle: ${vehicle}%0A`+
+    `Service: ${service}%0ADate: ${date} ${time}%0A`+
+    (pickup ? `Pickup needed at: ${address || 'to be shared'}` : `I will drop the car in myself`);
+
+  document.getElementById('waConfirmLink').href = `https://wa.me/919958958002?text=${text}`;
+  document.getElementById('confirmBox').classList.add('show');
+});
+
+/* ---------------- REVIEWS ---------------- */
+let reviews = [
+  {name:"Ankit Yadav", car:"Maruti Swift", role:"Office Employee", rating:5, comment:"Back-to-back meetings all week, no way I could've taken the car in myself. They picked it up from office parking, serviced it, dropped it back before I left. No hectic at all."},
+  {name:"Neha Kapoor", car:"Hyundai i20", role:"Office Employee", rating:5, comment:"Whatsapp updates through the day meant I never had to call and ask 'where's my car'. Genuinely stress-free."},
+  {name:"Mohd Irfan", car:"Swift Dzire", role:"Taxi Driver", rating:5, comment:"Every off-road day costs me money. Picked up early morning, done by evening, dropped near my stand. Perfect for taxi drivers."},
+  {name:"Rahul Mehta", car:"Honda City", role:"Office Employee", rating:4, comment:"Pickup was on time, service was thorough. Drop was about 40 minutes late but they called ahead to tell me."},
+  {name:"Sunil Kumar", car:"Toyota Etios", role:"Cab Driver", rating:4, comment:"Fair pricing for daily cab use. Only wish weekend slots were easier to get."},
+  {name:"Ritu Sharma", car:"Maruti Swift", role:"Personal Car Owner", rating:5, comment:"First time using a pickup-drop service and honestly won't go back to driving in for a service now."},
+  {name:"Suman Tiwari", car:"Maruti Baleno", role:"Office Employee", rating:5, comment:"Manager, so my day is unpredictable. They work around my schedule instead of the other way round."},
+  {name:"Rakesh Yadav", car:"Toyota Innova", role:"Taxi Driver", rating:5, comment:"Been using them for 2 years for my taxi. Consistent, and they know exactly what a daily-run car needs."},
+  {name:"Priyanka Sethi", car:"Volkswagen Polo", role:"Office Employee", rating:3, comment:"Service quality was fine, but I had to follow up twice on WhatsApp before getting a status update."},
+  {name:"Anjali Verma", car:"Tata Nexon", role:"Personal Car Owner", rating:5, comment:"Denting job after a scrape looked like it never happened. Very happy with the finish."},
+  {name:"Vikram Chauhan", car:"Swift Dzire", role:"Cab Driver", rating:3, comment:"Denting work turned out good, but it took a day longer than they'd promised — cost me a day's earnings."},
+  {name:"Deepak Chauhan", car:"Hyundai Verna", role:"Office Employee", rating:4, comment:"Sales job means I'm never at one place. Pickup from client site once, drop at office next time — they managed it."},
+  {name:"Karan Malhotra", car:"Hyundai Creta", role:"Personal Car Owner", rating:4, comment:"Good overall. AC service could've been a bit more thorough but they fixed it on a follow-up visit without charging extra."},
+  {name:"Farah Sheikh", car:"Maruti Swift", role:"Office Employee", rating:4, comment:"Convenient for office folks like me who can't step out during work hours. Would like slightly earlier morning pickup slots though."},
+  {name:"Sana Ali", car:"Hyundai i10", role:"Personal Car Owner", rating:5, comment:"Took the yearly plan — genuinely forget about servicing dates now, they call before it's due."},
+  {name:"Gaurav Singh", car:"Maruti Baleno", role:"Personal Car Owner", rating:2, comment:"Pickup got delayed by almost 2 hours with no update, which threw off my day. Final service quality was okay though."},
+  {name:"Pooja Iyer", car:"Honda Amaze", role:"Office Employee", rating:5, comment:"As an accountant, closing week is brutal. Loved that I didn't have to think about the car at all."},
+  {name:"Manisha Roy", car:"Maruti WagonR", role:"Personal Car Owner", rating:5, comment:"Simple, honest pricing and the car came back cleaner than I left it."},
+  {name:"Vivek Anand", car:"Skoda Rapid", role:"Office Employee", rating:5, comment:"Consultant, so I travel client to client. They coordinated the drop to my office address without any back and forth."},
+  {name:"Ramesh Gowda", car:"Toyota Etios", role:"Cab Driver", rating:5, comment:"My car is my livelihood, can't afford bad service. These guys get that and move fast."},
+  {name:"Divya Nair", car:"Maruti Ciaz", role:"Office Employee", rating:3, comment:"Pickup-drop was smooth, but the yearly subscription pricing wasn't explained clearly upfront — had to ask twice."},
+  {name:"Abhishek Nair", car:"Maruti Ciaz", role:"Personal Car Owner", rating:4, comment:"Solid general service. Communication on WhatsApp is the best part, always knew what stage my car was at."}
+];
+
+function cardHtml(r){
+  return `<div class="rev-card">
+      <div class="top-row"><span class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span><span class="role-tag">${r.role}</span></div>
+      <p>"${r.comment.replace(/</g,'&lt;')}"</p>
+      <div class="who">${r.name}</div><div class="car">${r.car}</div>
+    </div>`;
+}
+
+function renderReviews(){
+  const half = Math.ceil(reviews.length/2);
+  const rowA = reviews.slice(0, half);
+  const rowB = reviews.slice(half);
+  // duplicate each row's content once so the CSS marquee (translateX -50%) loops seamlessly
+  document.getElementById('revTrackA').innerHTML = rowA.map(cardHtml).join('') + rowA.map(cardHtml).join('');
+  document.getElementById('revTrackB').innerHTML = rowB.map(cardHtml).join('') + rowB.map(cardHtml).join('');
+
+  const avg = (reviews.reduce((a,r)=>a+r.rating,0)/reviews.length).toFixed(1);
+  document.getElementById('revScore').textContent = avg;
+  document.getElementById('revStars').textContent = '★'.repeat(Math.round(avg)) + '☆'.repeat(5-Math.round(avg));
+  document.getElementById('revCount').textContent = `Based on ${reviews.length} reviews`;
+}
+renderReviews();
+
+document.getElementById('reviewForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  reviews.unshift({
+    name: document.getElementById('r_name').value.trim() || 'Anonymous',
+    car: document.getElementById('r_car').value.trim(),
+    role: document.getElementById('r_role').value,
+    rating: parseInt(document.getElementById('r_rating').value,10),
+    comment: document.getElementById('r_comment').value.trim()
+  });
+  renderReviews();
+  this.reset();
+  document.getElementById('reviews').scrollIntoView({behavior:'smooth'});
+});
+
+/* ---------------- GALLERY UPLOAD PREVIEW ---------------- */
+document.getElementById('galInput').addEventListener('change', function(e){
+  const uploadLabel = document.querySelector('.gal-upload');
+  const grid = uploadLabel.parentElement;
+  Array.from(e.target.files).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ev=>{
+      const tile = document.createElement('div');
+      tile.className = 'gal-tile';
+      tile.innerHTML = `<span class="gal-chip after">After</span><img src="${ev.target.result}"><div class="cap">${file.name}</div>`;
+      grid.insertBefore(tile, uploadLabel);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+</script>
+</body>
+</html>
